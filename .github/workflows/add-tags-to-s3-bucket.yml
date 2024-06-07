@@ -3,6 +3,9 @@ name: Add Tags to S3 Bucket
 on:
   workflow_dispatch:
     inputs:
+      BUCKET_NAME: # json object
+        required: true
+        type: string
       tags: # json object
         required: true
         type: string
