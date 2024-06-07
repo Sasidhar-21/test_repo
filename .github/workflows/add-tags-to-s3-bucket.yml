@@ -50,7 +50,7 @@ jobs:
 
           aws s3api put-bucket-tagging \
             --bucket ${BUCKET_NAME} \
-            --tagging "TagSet=${TAGS}"
+            --tagging "Tagging={TagSet=[${TAGS}]}"
 
       - name: Create a log message
         uses: port-labs/port-github-action@v1
