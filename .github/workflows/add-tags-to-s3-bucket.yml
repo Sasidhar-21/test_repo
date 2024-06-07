@@ -3,6 +3,9 @@ name: Add Tags to S3 Bucket
 on:
   workflow_dispatch:
     inputs:
+      bucket: # json object
+        required: true
+        type: string
       tags: # json object
         required: true
         type: string
@@ -34,7 +37,7 @@ jobs:
 
       - name: Add Tags to S3 Bucket
         env:
-          BUCKET_NAME: ${{ fromJson(inputs.port_context).entity.identifier }}
+          BUCKET_NAME: ${{ github.event.inputs.bucket }}
           TAGS_JSON: ${{ github.event.inputs.tags }}
         run: |
           # Extract key-value pairs from the JSON object
